@@ -1,6 +1,7 @@
 import pygame
+import math
 from queue import PriorityQueue
-from utils import h, reconstruct_path
+from utils import reconstruct_path
 
 def algorithm(draw, grid, start, end):
     count =  0
@@ -11,7 +12,7 @@ def algorithm(draw, grid, start, end):
     g_score = {node: float("inf") for row in grid for node in row}
     g_score[start] = 0
     f_score = {node: float("inf") for row in grid for node in row}
-    f_score[start] = h(start.get_pos(), end.get_pos())
+    f_score[start] = 0
 
     open_set_hash = {start}
 
@@ -35,7 +36,6 @@ def algorithm(draw, grid, start, end):
             if temp_g_score < g_score[neighbor]:
                 came_from[neighbor] = current
                 g_score[neighbor] = temp_g_score
-                f_score[neighbor] = temp_g_score + h(neighbor.get_pos(), end.get_pos())
                 if neighbor not in open_set_hash:
                     count += 1
                     open_set.put((f_score[neighbor], count, neighbor))

@@ -1,7 +1,8 @@
 from re import L
 import pygame
 from nodes import Node
-from astar import algorithm
+import astar
+import dijkstra
 
 WIDTH = 600
 DIMENSIONS = (WIDTH, WIDTH)
@@ -108,11 +109,17 @@ def main(win, width):
                     end = None
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE and not started:
+                if event.key == pygame.K_1 and not started:
                     for row in grid:
                         for node in row:
                             node.update_neighbors(grid)
-                    algorithm(lambda: draw(win, grid, ROWS, width), grid, start, end)
+                    dijkstra.algorithm(lambda: draw(win, grid, ROWS, width), grid, start, end)
+
+                if event.key == pygame.K_2 and not started:
+                    for row in grid:
+                        for node in row:
+                            node.update_neighbors(grid)
+                    astar.algorithm(lambda: draw(win, grid, ROWS, width), grid, start, end)
 
                 if event.key == pygame.K_c:
                     start = None
