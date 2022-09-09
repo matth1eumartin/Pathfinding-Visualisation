@@ -5,4 +5,4 @@ true greedy but fast results, whereas the Dijkstra algorithm achieves a faster p
 
 ![astar](https://user-images.githubusercontent.com/94123711/188642392-32cd993d-4c66-4c2b-8667-43e51ce5b01f.gif)
 
-![dijkstra](https://user-images.githubusercontent.com/94123711/188642717-cc065d4a-340a-46e2-8556-9e25be155d57.gif)
+![dijkstra](https://user-images.githubusercontent.com/94123711/189365987-f01689d5-0634-4c28-b8c8-79539b2d6fd0.gif)
